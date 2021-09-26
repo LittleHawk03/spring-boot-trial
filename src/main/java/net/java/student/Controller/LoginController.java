@@ -26,7 +26,7 @@ public class LoginController {
 
     }
 
-    @PostMapping("/logins/post")
+    @PostMapping("/logins")
     public LoginStudent CreLoginStudent(@Valid @RequestBody LoginStudent loginStudent){
         return service.save(loginStudent);
     }
