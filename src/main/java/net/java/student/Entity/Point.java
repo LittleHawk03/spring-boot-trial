@@ -16,6 +16,10 @@ public class Point {
     @Column(name = "diemKTHp")
     private Float diemKTHp;
 
+
+
+
+
     public Integer getId() {
         return id;
     }

@@ -1,5 +1,7 @@
 package net.java.student.Entity;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
@@ -47,6 +49,9 @@ public class Student {
     @OneToOne
     @JoinColumn(name = "class_id",referencedColumnName = "id")
     private Class aClass;
+
+
+
 
 
 
@@ -160,4 +165,6 @@ public class Student {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+
 }
