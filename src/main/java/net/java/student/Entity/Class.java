@@ -1,7 +1,11 @@
 package net.java.student.Entity;
 
 
+
+
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "class")
@@ -16,17 +20,25 @@ public class Class {
     @Column(name = "STT")
     private Integer STT;
 
-    @OneToOne
-    @JoinColumn(name = "schoolYear_id",referencedColumnName = "id")
+    @Column(name = "Teacher_master")
+    private String Teacher_master;
+
+    @OneToOne(mappedBy = "aClass")
+    private Student student;
+
+    @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name = "shoolYear_id")
     private SchoolYear schoolYear;
 
-    @OneToOne
-    @JoinColumn(name = "studyProgram_id",referencedColumnName = "id")
+    @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name = "studyProgram_id")
     private StudyProgram studyProgram;
 
-    @OneToOne
-    @JoinColumn(name = "department_id",referencedColumnName = "id")
+    @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name = "department_id")
     private Department department;
+
+
 
 
     public Integer getId() {
@@ -75,5 +87,13 @@ public class Class {
 
     public void setDepartment(Department department) {
         this.department = department;
+    }
+
+    public String getTeacher_master() {
+        return Teacher_master;
+    }
+
+    public void setTeacher_master(String teacher_master) {
+        Teacher_master = teacher_master;
     }
 }

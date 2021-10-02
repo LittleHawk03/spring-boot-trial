@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("/api/logins/students/classes")
+@RequestMapping("/api/logins")
 public class DepartmentController {
 
     @Autowired

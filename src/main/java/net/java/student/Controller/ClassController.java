@@ -15,7 +15,7 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 
 @RestController
-@RequestMapping("api/logins/students")
+@RequestMapping("/api/logins/students")
 public class ClassController {
 
     @Autowired
@@ -48,8 +48,6 @@ public class ClassController {
             Class SetClass = service.get(id);
             SetClass.setMaLop(aClass.getMaLop());
             SetClass.setSTT(aClass.getSTT());
-            SetClass.setDepartment(aClass.getDepartment());
-            SetClass.setStudyProgram(aClass.getStudyProgram());
             service.save(aClass);
             return new ResponseEntity<>(HttpStatus.OK);
         }catch (NoSuchElementException e){

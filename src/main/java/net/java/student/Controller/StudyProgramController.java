@@ -3,6 +3,7 @@ package net.java.student.Controller;
 import net.java.student.Entity.Student;
 import net.java.student.Entity.StudyProgram;
 import net.java.student.Service.StudyProgramService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,9 +13,10 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("/api/logins/students/classes")
+@RequestMapping("/api/logins")
 public class StudyProgramController {
 
+    @Autowired
     private StudyProgramService service;
 
 

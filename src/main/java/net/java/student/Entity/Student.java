@@ -1,5 +1,6 @@
 package net.java.student.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.persistence.*;
@@ -46,12 +47,13 @@ public class Student {
     @Column(name = "phone")
     private String phone;
 
-    @OneToOne
-    @JoinColumn(name = "class_id",referencedColumnName = "id")
+    @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name = "class_id")
     private Class aClass;
 
-
-
+    @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name = "picture_id")
+    private FileStorageProperties picture;
 
 
 
@@ -110,13 +112,7 @@ public class Student {
         this.CCCD = CCCD;
     }
 
-//    public List<Subject> getSubjects() {
-//        return subjects;
-//    }
-//
-//    public void setSubjects(List<Subject> subjects) {
-//        this.subjects = subjects;
-//    }
+
 
     public String getBirthDay() {
         return BirthDay;
@@ -142,13 +138,7 @@ public class Student {
         Address = address;
     }
 
-    public Class getaClass() {
-        return aClass;
-    }
 
-    public void setaClass(Class aClass) {
-        this.aClass = aClass;
-    }
 
     public String getEmail() {
         return email;
@@ -166,5 +156,19 @@ public class Student {
         this.phone = phone;
     }
 
+    public Class getaClass() {
+        return aClass;
+    }
 
+    public void setaClass(Class aClass) {
+        this.aClass = aClass;
+    }
+
+    public FileStorageProperties getPicture() {
+        return picture;
+    }
+
+    public void setPicture(FileStorageProperties picture) {
+        this.picture = picture;
+    }
 }

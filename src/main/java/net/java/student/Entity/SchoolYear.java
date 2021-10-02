@@ -15,6 +15,11 @@ public class SchoolYear {
     @Column(name = "yearEnd")
     private Integer yearEnd;
 
+    @OneToOne(mappedBy = "schoolYear")
+    private Class aClass;
+
+
+
     public Integer getId() {
         return id;
     }

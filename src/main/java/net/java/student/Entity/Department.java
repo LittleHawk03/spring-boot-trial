@@ -1,7 +1,8 @@
 package net.java.student.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,9 +17,23 @@ public class Department {
     @Column(name = "Organize_year")
     private Integer Organize_year;
 
-    @OneToMany
-    @JoinColumn(name = "subject_id",referencedColumnName = "id")
-    List<Subject> subjects = new ArrayList<>();
+
+//    @OneToOne(mappedBy = "department")
+//    private Teacher teacher;
+
+//    @OneToOne(mappedBy = "department1")
+//    private Subject subject;
+
+
+        @OneToMany(targetEntity = Subject.class,cascade = CascadeType.ALL)
+        @JoinColumn(name = "subject_id",referencedColumnName = "id")
+        private List<Subject> subjects;
+
+
+
+
+
+
 
     public Integer getId() {
         return id;
@@ -36,14 +51,6 @@ public class Department {
         Organize_year = organize_year;
     }
 
-    public List<Subject> getSubjects() {
-        return subjects;
-    }
-
-    public void setSubjects(List<Subject> subjects) {
-        this.subjects = subjects;
-    }
-
     public String getName() {
         return name;
     }
@@ -52,4 +59,11 @@ public class Department {
         this.name = name;
     }
 
+    public List<Subject> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(List<Subject> subjects) {
+        this.subjects = subjects;
+    }
 }

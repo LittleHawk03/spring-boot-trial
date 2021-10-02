@@ -1,30 +1,30 @@
 package net.java.student.Service;
 
-import net.java.student.Entity.Subject;
+import net.java.student.Entity.LoginStudent;
 import net.java.student.Entity.Teacher;
-import net.java.student.Repository.SubjectsRepository;
+import net.java.student.Repository.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class SubjectService {
+public class TeacherService {
 
     @Autowired
-    private SubjectsRepository repository;
+    private TeacherRepository repository;
 
-    public List<Subject> list(){
-        return repository.findAll();
-    }
+   public List<Teacher> list(){
+       return repository.findAll();
+   }
 
     //them sinh vien vao table
-    public Subject save(Subject subject){
-        return repository.save(subject);
+    public Teacher save(Teacher teacher){
+        return repository.save(teacher);
     }
 
     //lay student theo dang sinh vien
-    public Subject get(Integer id){
+    public Teacher get(Integer id){
         return repository.findById(id).get();
     }
 
@@ -33,6 +33,4 @@ public class SubjectService {
     public void delete(Integer id){
         repository.deleteById(id);
     }
-
-
 }

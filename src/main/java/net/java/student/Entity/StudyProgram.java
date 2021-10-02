@@ -1,6 +1,7 @@
 package net.java.student.Entity;
 
 import javax.persistence.*;
+import javax.security.auth.Subject;
 
 @Entity
 @Table(name = "StudyProgram")
@@ -12,6 +13,8 @@ public class StudyProgram {
     private Integer id;
     @Column(name = "name_program")
     private String name_program;
+
+
 
     public Integer getId() {
         return id;
@@ -28,4 +31,6 @@ public class StudyProgram {
     public void setName_program(String name_program) {
         this.name_program = name_program;
     }
+
+
 }

@@ -16,6 +16,9 @@ public class Point {
     @Column(name = "diemKTHp")
     private Float diemKTHp;
 
+    @OneToOne(mappedBy = "point")
+    private SubjectList subjectList;
+
 
 
 

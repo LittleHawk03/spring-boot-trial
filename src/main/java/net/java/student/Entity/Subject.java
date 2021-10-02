@@ -1,32 +1,35 @@
 package net.java.student.Entity;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
-@Table(name = "subjects")
+@Table(name = "subject")
 public class Subject {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
-
     @Column(name = "name")
     private String name;
+    @Column(name = "dateTest")
+    private Date dateTest;
 
-    @Column(name = "So_TC")
-    private Integer So_TC;
 
-    @Column(name = "Ma_Mon")
-    private String Ma_Mon;
+
+    @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name = "subjectList_id")
+    private SubjectList subjectList;
+
+    @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name = "teacher_id")
+    private Teacher teacher;
+
 
     public Integer getId() {
         return id;
     }
-
-    @OneToOne
-    @JoinColumn(name = "point_id",referencedColumnName = "id")
-    private Point point;
 
     public void setId(Integer id) {
         this.id = id;
@@ -40,27 +43,27 @@ public class Subject {
         this.name = name;
     }
 
-    public Integer getSo_TC() {
-        return So_TC;
+    public Date getDateTest() {
+        return dateTest;
     }
 
-    public void setSo_TC(Integer so_TC) {
-        So_TC = so_TC;
+    public void setDateTest(Date dateTest) {
+        this.dateTest = dateTest;
     }
 
-    public String getMa_Mon() {
-        return Ma_Mon;
+    public SubjectList getSubjectList() {
+        return subjectList;
     }
 
-    public void setMa_Mon(String ma_Mon) {
-        Ma_Mon = ma_Mon;
+    public void setSubjectList(SubjectList subjectList) {
+        this.subjectList = subjectList;
     }
 
-    public Point getPoint() {
-        return point;
+    public Teacher getTeacher() {
+        return teacher;
     }
 
-    public void setPoint(Point point) {
-        this.point = point;
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 }

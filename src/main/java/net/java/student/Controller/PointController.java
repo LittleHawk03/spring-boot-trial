@@ -2,7 +2,6 @@ package net.java.student.Controller;
 
 
 import net.java.student.Entity.Point;
-import net.java.student.Entity.Subject;
 import net.java.student.Service.PointService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +13,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("/api/logins/students/classes/departments/subjects")
+@RequestMapping("/api/logins")
 public class PointController {
 
     @Autowired

@@ -16,9 +16,12 @@ public class StudentService {
 
 
     //show student duoi dang json
+    
     public List<Student> list(){
         return repository.findAll();
     }
+
+
 
     //them sinh vien vao table
     public Student save(Student student){
@@ -29,6 +32,7 @@ public class StudentService {
     public Student get(Integer id){
         return repository.findById(id).get();
     }
+
 
     //xoa sinh vien theo id
     public void delete(Integer id){
